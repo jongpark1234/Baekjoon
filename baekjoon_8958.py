@@ -11,5 +11,3 @@ for i in range(n):
         else:
             temp = 0
     print(score)
-    
-    
