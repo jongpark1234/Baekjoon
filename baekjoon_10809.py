@@ -10,5 +10,3 @@ for j in range(len(s)):
         save.append(s[j])
 for k in range(len(alist)):
     print(alist[k], end=" ")
-
-print(save)
