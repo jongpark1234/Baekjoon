@@ -7,4 +7,3 @@ for i in range(c):
         if (i > avg):
             upper += 1
     print("{:.3f}%".format(round((upper/n[0]) * 100, 3)))
-    upper = 0
