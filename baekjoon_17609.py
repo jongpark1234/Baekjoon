@@ -17,7 +17,6 @@ def palindrome(s, l, r):
             if (fs == True) or (ss == True): return 1
             else: return 2
     return 0
-
 t = int(stdin.readline())
 for i in range(t):
     string = list(stdin.readline().rstrip())
