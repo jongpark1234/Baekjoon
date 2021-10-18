@@ -14,4 +14,3 @@ for i in range(t):
         print("Korea")
     else:
         print("Draw")
-    
