@@ -9,4 +9,3 @@ elif (n == 4 or n == 6):
     print(4)
 elif (n == 5):
     print(5)
-    
