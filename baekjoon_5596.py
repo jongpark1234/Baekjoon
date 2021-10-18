@@ -4,4 +4,3 @@ if (sum(s) >= sum(t)):
     print(sum(s))
 else:
     print(sum(t))
-    
