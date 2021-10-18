@@ -9,4 +9,3 @@ for i in range(t):
     if temp == 0:
         temp = 10
     print(temp)
-    
