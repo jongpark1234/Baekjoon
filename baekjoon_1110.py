@@ -10,4 +10,3 @@ while True:
     if num == n:
         break
 print(cycle)
-
