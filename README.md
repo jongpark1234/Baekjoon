@@ -5,4 +5,7 @@
 [![hyp3rflow's solved.ac stats](https://github-readme-solvedac.hyp3rflow.vercel.app/api/?handle=jongpark1234)](https://www.acmicpc.net/user/jongpark1234)
 
 ## Algorithm
-### Math
+### 수학
++ **수학적인 방법으로 접근하여 문제를 해결해야하는 문제입니다.**
+#### 사칙연산
++ 
