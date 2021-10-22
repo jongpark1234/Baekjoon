@@ -3,10 +3,10 @@ from collections import Counter
 from math import *
 numlist = []
 mods = []
-n = int(sys.stdin.readline()) # 리스트 내 숫자 개수 n 입력
-for i in range(n): # 리스트 내 요소 입력
+n = int(sys.stdin.readline())
+for i in range(n):
     numlist.append(int(sys.stdin.readline()))
-numlist.sort() # 리스트 정렬
+numlist.sort()
 mode = Counter(numlist).most_common()
 temp = mode[0][1]
 for i in range(len(mode)):
