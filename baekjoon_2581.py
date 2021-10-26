@@ -5,7 +5,7 @@ n = int(input())
 for i in range(m, n + 1):
     prime = True
     if i > 1:
-        for j in range(2, int(math.sqrt(i))):
+        for j in range(2, i):
             if i % j == 0:
                 prime = not prime
                 break
