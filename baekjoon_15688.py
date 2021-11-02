@@ -6,4 +6,3 @@ for _ in range(n):
 numlist.sort()
 for i in range(n):
     print(numlist[i])
-    
