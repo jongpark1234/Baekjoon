@@ -9,4 +9,3 @@ for i in range(n):
     stack.append(input())
 result = list(set(map(strsum, itertools.permutations(stack, k))))
 print(len(result))
-s
