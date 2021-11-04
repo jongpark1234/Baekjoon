@@ -18,7 +18,7 @@ for _ in range(n):
                     break
                 stack[line].pop()
                 moving += 1
-            if len(stack[line] and stack[line][-1]) == fret:
+            if len(stack[line]) and stack[line][-1] == fret:
                 continue
             stack[line].append(fret)
             moving += 1
