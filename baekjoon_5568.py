@@ -8,5 +8,5 @@ stack = []
 for i in range(n):
     stack.append(input())
 result = list(set(map(strsum, itertools.permutations(stack, k))))
-print(result, type(result))
 print(len(result))
+s
