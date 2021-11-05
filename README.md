@@ -34,4 +34,70 @@
 
 ![DS](https://1.bp.blogspot.com/-xIvY2zPVe0E/XDsYHAO93BI/AAAAAAAAKx8/pRmZ4xKdNkwzbdJDlzsI3UX-j57KiKLKwCLcBGAs/s1600/111.png "Data Structure")
 + **대표 문제 : [3190 - 뱀](https://www.acmicpc.net/problem/3190)**  
-+ **대표 문제 : [4949 - 균형잡힌 세상](https://www.acmicpc.net/problem/4949)**  
+　　　　　+ **대표 문제 : [4949 - 균형잡힌 세상](https://www.acmicpc.net/problem/4949)**
+### 문자열 (String)
+**문자열 알고리즘은 대표적으로 두 가지로 나눌 수 있습니다.**
+#### 문자열 검색 (String Search)
+**문자열 검색은 어떤 문자열 S에서 어떤 패턴 P를 찾아내는 알고리즘입니다. 문자열 집합에서 어느 한 개의 문자열을 탐색하는 알고리즘은 'Trie' 또는 '이진 탐색'을 참고하시기 바랍니다.**  
+**문자열 검색은 크게 네 가지로 분류할 수 있습니다.**
+##### Naïve String Search
+**우직한 문자열 검색법이라는 이름 그대로, 첫 번째부터 n번째 글자까지, 2번째부터 m + 1번째 글자까지,   이런식으로 문자열을 일일이 찾아가며 탐색합니다.**
+
+**이 경우 길이가 각각 n, m인 문자열과 패턴에 대해 Θ((n − m) m)의 탐색횟수를 거칩니다.**
+
+**작동 시간은 오래 걸리나 구현이 편하여, 작은 입력에 대한 알고리즘에 쓰입니다.**
+
+```#!syntax cpp
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+void find_pattern(const string &, const string &);
+
+int main(const int argc, const char **argv)
+{
+    const string haystack = "hello hello hello hellchosun";
+    const string needle = "hell";
+
+    find_pattern(haystack, needle);
+
+    return 0;
+}
+
+void find_pattern(const string &haystack, const string &needle)
+{
+    const auto haystack_size = haystack.size();
+    const auto needle_size = needle.size();
+    size_t i;
+    size_t j;
+    bool unmatched_flag = true;
+
+    cout << "Begin to find pattern \"" << needle << "\" at target string \"" << haystack << "\"" << endl;
+
+    for (int i = 0; i < haystack_size - needle_size; ++i)
+    {
+        for (int j = 0; j < needle_size; ++j)
+        {
+            if (haystack[i + j] == needle[j])
+            {
+                continue;
+            }
+
+            break;
+        }
+
+        if (j == needle_size)
+        {
+            cout << "Pattern \"" << needle << "\" matched at " << i + 1 << " ~ " << i + 1 + needle_size << endl;
+
+            unmatched_flag = false;
+        }
+    }
+
+    if (unmatched_flag)
+    {
+        cout << "Pattern unmatched" << endl;
+    }
+}
+```
