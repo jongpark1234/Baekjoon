@@ -18,7 +18,7 @@
 **동적 계획법은  "어떤 문제를 풀기 위해 그 문제를 더 작은 문제의 연장선으로 생각하고,**  
 **과거에 구한 해를 활용하는" 방식의 알고리즘을 총칭합니다.**
 
-![DNPG](https://t1.daumcdn.net/cfile/tistory/222298475514048A13 "Dynamic Programming")
+![DNPG](https://blog.kakaocdn.net/dn/cmWrJH/btqG3lKtdFX/PLuok65B4W3v86mLXQKyo0/img.png "Dynamic Programming")
 + **대표 문제 : [1509 - 팰린드롬 분할](https://www.acmicpc.net/problem/1509)**  
 　　　　　**[16500 - 문자열 판별](https://www.acmicpc.net/problem/16500)**  
 　　　　　**[20500 - Ezreal 여눈부터 가네 ㅈㅈ](https://www.acmicpc.net/problem/20500)**
@@ -28,3 +28,10 @@
 
 ![GT](https://miro.medium.com/max/1000/1*GyYtQ1e26aSO5lsk9G_ZjA.jpeg "Graph Theory")
 + **대표 문제 : [2667 - 단지번호붙이기](https://www.acmicpc.net/problem/2667)**
+### 자료 구조 (Data Structure)
+**자료 구조는 효율적인 접근 및 수정을 가능케 하는 자료의 조직, 관리, 저장을 의미합니다.**  
+**효과적으로 설계된 자료구조는 실행시간 혹은 메모리 용량과 같은 자원을 최소한으로 사용하면서 연산을 수행하도록 해 줍니다.**
+
+![DS](https://1.bp.blogspot.com/-xIvY2zPVe0E/XDsYHAO93BI/AAAAAAAAKx8/pRmZ4xKdNkwzbdJDlzsI3UX-j57KiKLKwCLcBGAs/s1600/111.png "Data Structure")
++ **대표 문제 : [3190 - 뱀](https://www.acmicpc.net/problem/3190)**  
++ **대표 문제 : [4949 - 균형잡힌 세상](https://www.acmicpc.net/problem/4949)**  
