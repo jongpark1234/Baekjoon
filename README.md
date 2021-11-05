@@ -47,7 +47,7 @@
 
 **작동 시간은 오래 걸리나 구현이 편하여, 작은 입력에 대한 알고리즘에 쓰입니다.**
 ###### 예시 코드
-```#!syntax cpp
+~~~cpp
 #include <iostream>
 #include <string>
 
@@ -100,7 +100,7 @@ void find_pattern(const string &haystack, const string &needle)
         cout << "Pattern unmatched" << endl;
     }
 }
-```
+~~~
 ##### Finite-state automaton based search
 **오토마타라고 부르기도 하는 일고리즘입니다. 선형 시간의 효율성을 자랑하지만 후술할 KMP 알고리즘이 해당 알고리즘보다 빠르고 더 이해하기 쉽습니다.**
 
@@ -124,7 +124,7 @@ void find_pattern(const string &haystack, const string &needle)
 
 **이 때의 계산횟수는 `Θ(n + m)` 입니다.**
 ###### 예시 코드
-```#!syntax cpp
+~~~cpp
 //상태전이함수 생성
 void kmp(char *pat) {
     int n = strlen(pat);
@@ -155,4 +155,4 @@ void find_pattern(char *arr, char *pat) {
         }
     }
 }
-```
+~~~
