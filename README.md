@@ -34,7 +34,7 @@
 
 ![DS](https://1.bp.blogspot.com/-xIvY2zPVe0E/XDsYHAO93BI/AAAAAAAAKx8/pRmZ4xKdNkwzbdJDlzsI3UX-j57KiKLKwCLcBGAs/s1600/111.png "Data Structure")
 + **대표 문제 : [3190 - 뱀](https://www.acmicpc.net/problem/3190)**  
-　　　　　+ **대표 문제 : [4949 - 균형잡힌 세상](https://www.acmicpc.net/problem/4949)**
+　　　　　**대표 문제 : [4949 - 균형잡힌 세상](https://www.acmicpc.net/problem/4949)**
 ### 문자열 (String)
 **문자열 알고리즘은 대표적으로 두 가지로 나눌 수 있습니다.**
 #### 문자열 검색 (String Search)
@@ -43,10 +43,10 @@
 ##### Naïve String Search
 **우직한 문자열 검색법이라는 이름 그대로, 첫 번째부터 n번째 글자까지, 2번째부터 m + 1번째 글자까지,   이런식으로 문자열을 일일이 찾아가며 탐색합니다.**
 
-**이 경우 길이가 각각 n, m인 문자열과 패턴에 대해 Θ((n − m) m)의 탐색횟수를 거칩니다.**
+**이 경우 길이가 각각 n, m인 문자열과 패턴에 대해 `Θ((n − m) m)`의 탐색횟수를 거칩니다.**
 
 **작동 시간은 오래 걸리나 구현이 편하여, 작은 입력에 대한 알고리즘에 쓰입니다.**
-
+###### 예시 코드
 ```#!syntax cpp
 #include <iostream>
 #include <string>
@@ -98,6 +98,61 @@ void find_pattern(const string &haystack, const string &needle)
     if (unmatched_flag)
     {
         cout << "Pattern unmatched" << endl;
+    }
+}
+```
+##### Finite-state automaton based search
+**오토마타라고 부르기도 하는 일고리즘입니다. 선형 시간의 효율성을 자랑하지만 후술할 KMP 알고리즘이 해당 알고리즘보다 빠르고 더 이해하기 쉽습니다.**
+
+**이 알고리즘은 상태전이함수를 만들어야 하는데, 그 탐색횟수까지 고려해야 합니다. 따라서 전체 탐색 횟수는 `Θ(n + m ∣Σ∣)`이며, 이 때 ∣Σ∣는 문자열에 속해 있는 문자 종류의 개수입니다.**
+
+**상태를 나타내는 p, 현재 문자열의 위치에 있는 문자의 종류를 나타내는 q가 있다면 상태전이 함수 `p = δ[p][q]`를 n번 반복해주다가 최종 상태에 돌입하면 매칭된 위치를 출력해줍니다.**
+
+##### Knuth-Morris-Pratt Algorithm
+**보통 발견자들의 앞글자를 따 KMP 알고리즘이라 하기도 합니다.**
+
+**앞에서 설명한 오토마타와 비슷한 형식을 따르나 상태전이함수가 훨씬 간결하며, 준비 과정도 선형 시간인 점을 생각하면 문자의 종류가 다양한 상황에서는 당연히 KMP를 선택해야 메모리, 시간 모두 이득을 볼 수 있습니다.**
+
+**KMP의 사용 방법은 다음과 같습니다.**
+
++ "abcdabckl" 이라는 문자열이 있다고 합니다. 이 때 i = -1, j = 0이며, 시작 위치의 상태함수에 들어갈 값은 -1입니다.
+1. i와 j를 한 칸씩 전진시킨 뒤 비교합니다.
+2. i와 j가 매치되면, 또는 i가 -1일 때 한 칸씩 전진한 뒤, j 위치에 i 를 저장합니다.
+3. 만약 i 와 j 가 매치되지 않는다면 i는 상태전이함수에 있는 값으로 전환하고 2번으로 돌아갑니다.
+4. 이 과정을 j 가 n 보다 커질 때까지 반복합니다.
+5. 이 과정을 거친 상태전이함수는 0 0 0 0 1 2 3 0 0 이 됩니다.
+
+**이 때의 계산횟수는 `Θ(n + m)` 입니다.**
+###### 예시 코드
+```#!syntax cpp
+//상태전이함수 생성
+void kmp(char *pat) {
+    int n = strlen(pat);
+    int i = -1, j = 0;
+    pi[j] = i;
+    while(j < n) {
+        if(i == -1 || pat[i] == pat[j])
+            pi[++j] = ++i;
+        else 
+            i = pi[i];
+    }
+}
+
+//문자열 비교
+void find_pattern(char *arr, char *pat) {
+    int n = strlen(arr);
+    int m = strlen(pat);
+    int i = j = 0;
+    while(i < n) {
+        if(j == -1 || arr[i] == pat[j]) 
+            i++, j++;
+        else
+            j = pi[j];
+        
+        if(j == m) {
+            printf("The matching %d\n",i-m+1);
+            j = pi[j];
+        }
     }
 }
 ```
