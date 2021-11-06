@@ -2,7 +2,6 @@ keyword = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight
 dictlist = []
 m, n = map(int, input().split())
 numlist = [i for i in range(m, n + 1)]
-print(numlist)
 for i in numlist:
     word = ''
     for j in str(i):
