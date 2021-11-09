@@ -11,4 +11,4 @@ else:
         else:
             if l[i] == '8':
                 eight += 1
-print(eight)
+    print(eight)
