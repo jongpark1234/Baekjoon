@@ -6,7 +6,7 @@ for i in s:
     stack.append(i)
     if ''.join(stack[-len(e):]) == e:
         del stack[-len(e):]
-if not len(s):
+if len(stack) == 0:
     print('FRULA')
 else:
     print(''.join(stack))
