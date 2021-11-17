@@ -1,12 +1,10 @@
-from math import *
 m, n = map(int, input().split())
-primes = []
 def isprime(num):
     if num == 1:
         return False
     else:
-        for i in range(2, int(sqrt(num) + 1)):
-            if num % i == 0:
+        for i in range(2, int(num ** 0.5) + 1):
+            if not num % i:
                 return False
         return True
 for i in range(m, n + 1):
