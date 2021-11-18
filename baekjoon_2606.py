@@ -10,5 +10,6 @@ def dfs(v):
 for i in range(int(stdin.readline())):
     a, b = map(int, stdin.readline().split())
     graph[a].append(b)
+    graph[b].append(a)
 dfs(1)
 print(visited.count(True) - 1)
