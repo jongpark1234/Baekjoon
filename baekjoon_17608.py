@@ -1,4 +1,5 @@
-sticks = [int(input()) for i in range(int(input()))]
+from sys import stdin
+sticks = [int(stdin.readline()) for i in range(int(stdin.readline()))]
 high = 0
 cnt = 0
 for i in sticks[::-1]:
