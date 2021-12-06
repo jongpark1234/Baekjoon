@@ -7,7 +7,6 @@ for i in numlist:
     if sum(i) == n:
         result.append(i)
 result = list(set(result))
-print(result)
 for i in result:
     print(*i)
 print(len(result))
