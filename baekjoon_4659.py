@@ -23,7 +23,6 @@ while True:
         word += i
         if not isvowel:
             Not = 'not '
-            print('not vowel')
             break
         if len(word) > 1:
             if word[-2] == word[-1] and (word[-1] != 'e' and word[-1] != 'o'):
