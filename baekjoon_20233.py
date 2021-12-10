@@ -1,0 +1,6 @@
+a = int(input())
+x = int(input())
+b = int(input())
+y = int(input())
+t = int(input())
+print(a + max(t - 30, 0) * x * 21, b + max(t - 45, 0) * y * 21)
