@@ -406,3 +406,40 @@ print(manacher('#' + '#'.join(s)+'#'))
 ~~~
 + **대표 문제 : [14444 - 가장 긴 팰린드롬 부분 문자열](https://www.acmicpc.net/problem/14444)**  
 　　　　　**[15893 - 가장 긴 공통부분 팰린드롬](https://www.acmicpc.net/problem/15893)**
+
+### 폴라드 로 (Pollard's rho)
+![PR](https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Pollard_rho_cycle.svg/220px-Pollard_rho_cycle.svg.png "Pollard's rho")
+
+**폴라드 로 알고리즘은 소인수분해 알고리즘입니다.**
+
+**이 알고리즘은 저장 공간을 적게 사용하고 소인수분해하는 데 걸리는 실행 시간은 합성수의 가장 작은 소인수의 제곱근에 비례하는 알고리즘입니다.**
+
+**소인수분해하려는 숫자 `n = pq` 에서, p는 자명하지 않은 난수(1이 아닌 인수)라고 가정합니다. 다항식을 n으로 나누는 연산 `g(x)`는 유사난수 수열을 생성할 때 사용되는데, 이 때 시작값을 적당히 2로 설정하면 수열은**
+
+`x1 = g(2), x2 = g(g(2)), x3 = g(g(g(2)))`
+
+**의 형태로 생성됩니다.**
+
+**이 수열은 다른 수열 `{xk mod p}` 과 관련이 있으나 `p`가 사전에 주어지지 않았기 때문에 두 번째 수열은 이 알고리즘에서 계산할 수는 없습니다.**
+
+**여기서 첫 번째 수열과 두 번째 수열의 관계가 폴라드 로 알고리즘의 핵심 아이디어입니다.**
+
+**이 수열에 나오는 수의 개수가 유한하기 때문에, `n`의 나머지인 수열 `{xk}`와 `{xk mod p}`는 언젠가 반복이 됩니다. 이 수열을 완전한 난수라고 가정하면, "생일 역설" 에 의해 이 수열이 반복되기 전까지 나오는 서로 다른 xk의 개수는 대략 `O(√N)`이며, 이 때 N은 가능한 값의 개수입니다.**
+
+**따라서 수열 `{xk mod p}` 은 수열 `{xk}` 보다 먼저 반복됩니다.**
+
+**각각의 값은 수열의 이전에 나온 값에 의해서만 결정되기 떄문에, 한 번 수열이 반복되면 수열은 계속 순환하게 됩니다. 이렇게 최종적으로 순환하게 되는 구조는 `x1 mod p, x2 mod p` 등의 값을 가지며 이 값들을 유향 그래프의 꼭짓점으로 표현하면 그리스 문자 p 처럼 생겼기 때문에 "폴라드 로 알고리즘"이라는 이름이 붙게 되었습니다.**
+#### 예시 코드
+~~~python
+from itertools import count
+from math import gcd
+number, x = 10403, 2
+for cycle in count(1):
+    y = x
+    for i in range(2 ** cycle):
+        x = (x * x + 1) % number
+        factor = gcd(x - y, number)
+        if factor > 1:
+            print("factor is", factor)
+            exit()
+~~~
