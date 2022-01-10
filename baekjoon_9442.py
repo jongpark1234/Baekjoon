@@ -3,8 +3,8 @@ year = 0
 while True:
     try:
         year += 1
-        a, b = input().split()
-        words = [input() for _ in range(int(a))]
+        a, b = stdin.readline().rstrip().split()
+        words = [stdin.readline().rstrip() for _ in range(int(a))]
         new_words = []
         for i in range(int(a)):
             s = ''
