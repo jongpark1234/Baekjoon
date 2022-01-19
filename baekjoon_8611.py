@@ -10,6 +10,6 @@ for i in range(2, 11):
     num = solution(n, i)
     if num == num[::-1]:
         palindrome = True
-        print(num)
+        print(i, num)
 if not palindrome:
     print('NIE')
