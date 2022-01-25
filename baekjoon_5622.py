@@ -1,5 +1,5 @@
 time = 0
-for i in range(input()):
+for i in input():
     if i == 'A' or i == 'B' or i == 'C': time += 3
     elif i == 'D' or i == 'E' or i == 'F': time += 4
     elif i == 'G' or i == 'H' or i == 'I': time += 5
