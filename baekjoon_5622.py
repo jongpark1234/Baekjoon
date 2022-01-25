@@ -1,12 +1,11 @@
-s = input()
 time = 0
-for i in range(len(s)):
-    if s[i] == 'A' or s[i] == 'B' or s[i] == 'C': time += 3
-    elif s[i] == 'D' or s[i] == 'E' or s[i] == 'F': time += 4
-    elif s[i] == 'G' or s[i] == 'H' or s[i] == 'I': time += 5
-    elif s[i] == 'J' or s[i] == 'K' or s[i] == 'L': time += 6
-    elif s[i] == 'M' or s[i] == 'N' or s[i] == 'O': time += 7
-    elif s[i] == 'P' or s[i] == 'Q' or s[i] == 'R' or s[i] == 'S': time += 8
-    elif s[i] == 'T' or s[i] == 'U' or s[i] == 'V': time += 9
-    elif s[i] == 'W' or s[i] == 'X' or s[i] == 'Y' or s[i] == 'Z': time += 10
+for i in range(input()):
+    if i == 'A' or i == 'B' or i == 'C': time += 3
+    elif i == 'D' or i == 'E' or i == 'F': time += 4
+    elif i == 'G' or i == 'H' or i == 'I': time += 5
+    elif i == 'J' or i == 'K' or i == 'L': time += 6
+    elif i == 'M' or i == 'N' or i == 'O': time += 7
+    elif i == 'P' or i == 'Q' or i == 'R' or i == 'S': time += 8
+    elif i == 'T' or i == 'U' or i == 'V': time += 9
+    elif i == 'W' or i == 'X' or i == 'Y' or i == 'Z': time += 10
 print(time)
