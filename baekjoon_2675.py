@@ -1,7 +1,6 @@
-t = int(input())
-for i in range(t):
+for _ in range(int(input())):
     r, s = input().split()
-    r = int(r)
-    for j in range(len(s)):
-        print(s[j] * r, end="")
-    print()
+    temp = ''
+    for i in s:
+        temp += i * int(r)
+    print(temp)
