@@ -1,8 +1,8 @@
 n = int(input())
-space = - 1
-star = n * 2
+space = 0
+star = n * 2 - 1
 for i in range(n):
-    space += 1
     print(' ' * int(space), end='')
-    print('*' * int(star - 1))
+    print('*' * int(star))
+    space += 1
     star -= 2
