@@ -1,8 +1,6 @@
 s = input()
 s = s.replace('::', ':^:')
 ip = s.split(':')
-if '' in ip:
-    ip.remove('')
 for i in range(len(ip)):
     if ip[i] != '^':
         ip[i] = ip[i].zfill(4)
