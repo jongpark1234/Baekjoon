@@ -38,14 +38,14 @@ def getLca(x, y):
         else:
             y = par[chNum[y]]
     return x if chIdx[x] < chIdx[y] else y
-n = int(input())
+n = int(sys.stdin.readline())
 for nodes in range(n - 1):
-    i, j = map(int, input().split())
+    i, j = map(int, sys.stdin.readline().split())
     g[i].append(j)
     g[j].append(i)
 dfs(1, 0)
 hld(1, 0, 1, 0)
-m = int(input())
+m = int(sys.stdin.readline())
 for query in range(m):
-    i, j = map(int, input().split())
+    i, j = map(int, sys.stdin.readline().split())
     print(getLca(i, j))
