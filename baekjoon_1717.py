@@ -22,7 +22,6 @@ def isParent(parent, a, b):
         return 'NO'
 n, m = map(int, stdin.readline().split())
 parent = [i for i in range(n + 1)]
-result = []
 for i in range(m):
     n, a, b = map(int, stdin.readline().split())
     if n:
