@@ -10,7 +10,7 @@ def process(l, r):
         l += 1
         r -= 1
     while l <= r:
-        if numlist[l] ^ numlist[l + 1] != 0:
+        if numlist[l] ^ numlist[l + 1]:
             return False
         l += 2
     return True
@@ -31,7 +31,7 @@ for i in range(int(input())):
         continue
     m = 0
     for j in range(31)[::-1]:
-        if ((Sum >> j) & 1) != 0:
+        if ((Sum >> j) & 1):
             m = j
             break
     for j in range(n):
