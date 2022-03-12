@@ -3,7 +3,7 @@ def squareNoNo(n):
     for i in range(1, int(n ** 0.5) + 1):
         p += mobius[i] * (n // (i * i))
     return p
-l, r = 0, 2000000000
+l, r = 0, 100000000000
 mobius = [0] * 1000001
 k = int(input())
 mobius[1] = 1
