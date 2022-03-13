@@ -1,5 +1,3 @@
-def smaller(x, y):
-    return x if x < y else y
 amount = 0
 i = 0
 w = False
@@ -9,15 +7,15 @@ if c < b:
     while i < n:
         if i < n - 2 and A[i] and A[i + 1] and A[i + 2]:
             if w:
-                s = smaller(A[i], A[i + 1])
+                s = min(A[i], A[i + 1])
                 A[i] -= s
                 A[i + 1] -= s
                 amount += (b + c) * s
                 w = False
             else:
-                s = smaller(smaller(A[i], A[i + 1]), A[i + 2])
+                s = min(min(A[i], A[i + 1]), A[i + 2])
                 if A[i] < A[i + 1] and A[i + 1] > A[i + 2]:
-                    s -= smaller(smaller(A[i], A[i + 2]), smaller(A[i + 1] - A[i], A[i + 1] - A[i + 2]))
+                    s -= min(min(A[i], A[i + 2]), min(A[i + 1] - A[i], A[i + 1] - A[i + 2]))
                     w = True
                 A[i] -= s
                 A[i + 1] -= s
@@ -25,7 +23,7 @@ if c < b:
                 amount += (b + c * 2) * s
                 continue
         if i < n - 1 and A[i] and A[i + 1]:
-            s = smaller(A[i], A[i + 1])
+            s = min(A[i], A[i + 1])
             A[i] -= s
             A[i + 1] -= s
             amount += (b + c) * s
