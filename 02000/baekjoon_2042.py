@@ -1,3 +1,4 @@
+from sys import stdin
 def init(start, end, node):
     if start == end:
         tree[node] = nList[start]
@@ -21,14 +22,14 @@ def update(start, end, node, index, diff):
     mid = (start+end) // 2
     update(start, mid, node * 2, index, diff)
     update(mid + 1, end, node * 2 + 1, index, diff)
-n, m, k = map(int, input().split())
+n, m, k = map(int, stdin.readline().split())
 nList = []
 tree = [0] * ((4 * n))
 for i in range(n):
-    nList.append(int(input()))
+    nList.append(int(stdin.readline()))
 init(0, n - 1, 1)
 for i in range(m + k):
-    cmd = list(map(int, input().split()))
+    cmd = list(map(int, stdin.readline().split()))
     if cmd[0] == 1:
         cmd[1] -= 1
         diff = cmd[2] - nList[cmd[1]]
