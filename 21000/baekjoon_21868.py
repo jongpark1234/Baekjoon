@@ -1,0 +1,5 @@
+mole, deno = map(int, input().split())
+a, b = map(int, input().split())
+x0 = int(input())
+deno *= abs(a)
+print(f'{a * x0 + b}\n{mole if deno else 0} {deno}')
