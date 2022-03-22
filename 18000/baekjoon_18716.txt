@@ -1,0 +1,33 @@
+mov X A
+mov Y X
+shr Y 3
+not Y
+mov Z Y
+shl Z 1
+or Y Z
+mov Z Y
+shl Z 2
+or Y Z
+mov Z Y
+shl Z 4
+or Y Z
+mov Z Y
+shl Z 8
+or Y Z
+mov Z Y
+shl Z 16
+or Y Z
+mov Z Y
+shl Z 32
+or Y Z
+mov W Y
+shl W 1
+not W
+and W Y
+mov B Y
+shl B 3
+mov C W
+shl C 3
+or B 7
+or A C
+and A B
