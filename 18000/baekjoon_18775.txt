@@ -1,0 +1,176 @@
+get X
+shl X 1
+get A
+or X A
+shl X 1
+get A
+or X A
+shl X 1
+get A
+or X A
+shl X 1
+get A
+or X A
+shl X 1
+get A
+or X A
+shl X 1
+get A
+or X A
+shl X 1
+get A
+or X A
+get Y
+shl Y 1
+get A
+or Y A
+shl Y 1
+get A
+or Y A
+shl Y 1
+get A
+or Y A
+shl Y 1
+get A
+or Y A
+shl Y 1
+get A
+or Y A
+shl Y 1
+get A
+or Y A
+shl Y 1
+get A
+or Y A
+get Z
+shl Z 1
+get A
+or Z A
+shl Z 1
+get A
+or Z A
+mov A X
+and A Y
+mov B Y
+and B Z
+mov C Z
+and C X
+mov D X
+or D Y
+mov E Y
+or E Z
+mov F Z
+or F X
+mov I D
+or I Z
+mov J A
+or J B
+or J C
+mov G J
+not G
+mov T I
+and T G
+mov V A
+and V Z
+mov H T
+or H V
+not H
+mov S G
+and S H
+mov U J
+and U H
+mov M T
+and M E
+mov N U
+and N B
+mov P S
+or P M
+or P N
+mov M T
+and M F
+mov N U
+and N C
+mov Q S
+or Q M
+or Q N
+mov M T
+and M D
+mov N U
+and N A
+mov R S
+or R M
+or R N
+mov W P
+shr W 7
+put W
+mov W P
+shl W 1
+shr W 7
+put W
+mov W P
+shl W 2
+shr W 7
+put W
+mov W P
+shl W 3
+shr W 7
+put W
+mov W P
+shl W 4
+shr W 7
+put W
+mov W P
+shl W 5
+shr W 7
+put W
+mov W P
+shl W 6
+shr W 7
+put W
+mov W P
+shl W 7
+shr W 7
+put W
+mov W Q
+shr W 7
+put W
+mov W Q
+shl W 1
+shr W 7
+put W
+mov W Q
+shl W 2
+shr W 7
+put W
+mov W Q
+shl W 3
+shr W 7
+put W
+mov W Q
+shl W 4
+shr W 7
+put W
+mov W Q
+shl W 5
+shr W 7
+put W
+mov W Q
+shl W 6
+shr W 7
+put W
+mov W Q
+shl W 7
+shr W 7
+put W
+mov W R
+shl W 5
+shr W 7
+put W
+mov W R
+shl W 6
+shr W 7
+put W
+mov W R
+shl W 7
+shr W 7
+put W
