@@ -3,12 +3,12 @@ for i in range(2, 80):
     fibonacci.append(fibonacci[i - 2] + fibonacci[i - 1])
 n = int(input())
 while True:
-    temp = n
+    c = n
     for i in range(1, 80):
-        if temp < fibonacci[i]:
-            temp = fibonacci[i - 1]
+        if c < fibonacci[i]:
+            c = fibonacci[i - 1]
             break
-    if temp == n:
+    if c == n:
         break
-    n -= temp
+    n -= c
 print(n)
