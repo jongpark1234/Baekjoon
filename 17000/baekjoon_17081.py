@@ -1,14 +1,14 @@
-Map = [] # map
-monsters = [] # monster info
-chests = [] # item chest info
-spiketraps = [] # position of Spike Traps
-equipment = [] # equipment of player
-k = 0 # count of monster
-l = 0 # count of item chest
-turn = 0 # turn of game
-Xpos, Ypos = 0, 0 # position of player
-level = 1 # level of player
-die = False # weather player is dead or not
+Map = []
+monsters = []
+chests = []
+spiketraps = []
+equipment = []
+k = 0
+l = 0 
+turn = 0
+Xpos, Ypos = 0, 0
+level = 1
+die = False
 maxExp = level * 5
 exp = 0
 normalDamage = 2
@@ -34,14 +34,14 @@ for i in range(n):
         FirstSpawnXpos, FirstSpawnYpos = Xpos, Ypos
         a = a.replace('@', '.')
     Map.append(list(a))
-S = input() # control string line
-for i in range(k): # input monster information
+S = input()
+for i in range(k):
     r, c, s, w, a, h, e = input().split()
     monsters.append([int(r) - 1, int(c) - 1, s, int(w), int(a), int(h), int(e)])
-for i in range(l): # input item chest information
+for i in range(l):
     r, c, t, s = input().split()
     chests.append([int(r) - 1, int(c) - 1, t, s])
-for i in S: # start the control
+for i in S:
     turn += 1
     if i == 'L':
         if Xpos != 0:
@@ -59,7 +59,7 @@ for i in S: # start the control
         if Ypos != n - 1:
             if Map[Ypos + 1][Xpos] != '#':
                 Ypos += 1
-    if Map[Ypos][Xpos] == 'B': # case in Item Chest
+    if Map[Ypos][Xpos] == 'B':
         Map[Ypos][Xpos] = '.'
         for chest in chests:
             if chest[:2] == [Ypos, Xpos]:
@@ -71,13 +71,13 @@ for i in S: # start the control
                     if len(accessory) != 4 and chest[3] not in accessory:
                         accessory.append(chest[3])
                 break
-    elif Map[Ypos][Xpos] == '^': # case in Spike Trap
+    elif Map[Ypos][Xpos] == '^':
         MobName = 'SPIKE TRAP'
         if 'DX' in accessory:
             health -= 1
         else:
             health -= 5
-    elif Map[Ypos][Xpos] == '&': # case in Monster
+    elif Map[Ypos][Xpos] == '&':
         for monster in monsters:
             if monster[:2] == [Ypos, Xpos]:
                 mobInfo = monster[:]
