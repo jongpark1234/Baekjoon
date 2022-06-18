@@ -5,8 +5,7 @@ divisions = []
 for i in range(1, int(n ** 0.5) + 1):
     if n % i == 0:
         divisions += [i, n // i]
-divisions.sort()
-divisions.pop()
+divisions.remove(max(divisions))
 divisions = sorted(list(set(divisions)))
 m = [1] + [0 for _ in range(len(divisions) - 1)]
 for i in range(len(m)):
