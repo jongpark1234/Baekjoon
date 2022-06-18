@@ -1,7 +1,7 @@
 MOD = 1000000007
 n = int(input())
 result = 2 - n
-divisions, m = [], []
+divisions = []
 for i in range(1, int(n ** 0.5) + 1):
     if n % i == 0:
         divisions += [i, n // i]
