@@ -1,0 +1,5 @@
+n = int(input())
+s = input()
+bigdata = s.count('bigdata')
+security = s.count('security')
+print(('bigdata?' if bigdata >= security else '') + ((' ' if bigdata == security else '') + 'security!' if security >= bigdata else ''))
