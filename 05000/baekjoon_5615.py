@@ -1,35 +1,31 @@
-from sys import stdin
-def power(x, y, p):
-    r = 1
-    while y:
-        if y & 1:
-            r = (r * x) % p
-        y //= 2
-        x = (x * x) % p
-    return r
-def millerRabin(n, a):
-    r = 0
-    d = n - 1
-    while d % 2 == 0:
-        r += 1
-        d //= 2
-    x = power(a, d, n)
-    if x == 1 or x == n - 1:
-        return True
-    for _ in range(r - 1):
-        x = power(x, 2, n)
+def primetest(n):
+    def verify(a, n, s):
+        if a >= n:
+            a %= n
+        if a < 2:
+            return True
+        d = n >> s
+        x = pow(a, d, n)
         if x == n - 1:
             return True
-    return False
-count = 0
-for _ in range(int(stdin.readline())):
-    isprime = 0
-    s = int(stdin.readline())
-    for i in [2, 3, 5, 7, 11]:
-        if millerRabin(2 * s + 1, i):
-            isprime += 1
-        else:
-            break
-    if isprime == 5:
-        count += 1
-print(count)
+        if x == 1: 
+            return True
+        for _ in range(s):
+            x = x * x % n
+            if x == 1:
+                return False
+            if x == n - 1:
+                return True
+        return False
+    if n == 2:
+        return True
+    if n < 2 or not n & 1:
+        return False
+    d = n >> 1
+    r = 1
+    while not d & 1:
+        d >>= 1
+        r += 1
+    numlist = [2, 7, 61] if n < 4759123141 else [2, 325, 9375, 28178, 450775, 9780504, 1795265022]
+    return all(verify(i, n, r) for i in numlist)
+print(sum(primetest(int(i) * 2 + 1) for i in [*open(0)][1:]))
