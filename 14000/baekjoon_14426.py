@@ -1,13 +1,12 @@
-# pypy3
 from sys import stdin
-string = []
-count = 0
-N, M = map(int, stdin.readline().split())
-S = [stdin.readline().rstrip() for _ in range(int(N))]
-string = [stdin.readline().rstrip() for _ in range(M)]
-for i in string:
-    for j in S:
-        if j[:len(i)] == i:
-            count += 1
-            break
-print(count)
+from bisect import bisect
+result = 0
+n, m = map(int, stdin.readline().split())
+s = sorted([stdin.readline().rstrip() for _ in range(n)])
+for i in [stdin.readline().rstrip() for _ in range(m)]:
+    idx = min(n - 1, bisect(s, i))
+    if s[idx].startswith(i):
+        result += 1
+    elif s[idx - 1].startswith(i):
+        result += 1
+print(result)
