@@ -1,7 +1,10 @@
 from sys import setrecursionlimit
 from copy import deepcopy
 setrecursionlimit(10 ** 5)
+dx, dy = [-1, 0, 1, 0], [0, -1, 0, 1]
 def dfs(graph, x, y, color, colorblind):
+    if x in [-1, n] or y in [-1, n]:
+        return
     if graph[y][x] == 'N':
         return
     if color != graph[y][x]:
@@ -11,14 +14,8 @@ def dfs(graph, x, y, color, colorblind):
         else:
             return
     graph[y][x] = 'N'
-    if x > 0:
-        dfs(graph, x - 1, y, color, colorblind)
-    if y > 0:
-        dfs(graph, x, y - 1, color, colorblind)
-    if x < n - 1:
-        dfs(graph, x + 1, y, color, colorblind)
-    if y < n - 1:
-        dfs(graph, x, y + 1, color, colorblind)
+    for i in range(4):
+        dfs(graph, x + dx[i], y + dy[i], color, colorblind)
 result1 = result2 = 0
 n = int(input())
 graph1 = [list(input()) for _ in range(n)]
