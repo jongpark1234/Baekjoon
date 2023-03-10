@@ -3,19 +3,17 @@ from copy import deepcopy
 setrecursionlimit(10 ** 5)
 dx, dy = [-1, 0, 1, 0], [0, -1, 0, 1]
 def dfs(graph, x, y, color, colorblind):
-    if x in [-1, n] or y in [-1, n]:
-        return
-    if graph[y][x] == 'N':
-        return
-    if color != graph[y][x]:
-        if colorblind:
-            if not (color in 'RG' and graph[y][x] in 'RG'):
-                return
-        else:
-            return
-    graph[y][x] = 'N'
-    for i in range(4):
-        dfs(graph, x + dx[i], y + dy[i], color, colorblind)
+    if 0 <= x < n and 0 <= y < n:
+        if graph[y][x] != 'N':
+            if color != graph[y][x]:
+                if colorblind:
+                    if not (color in 'RG' and graph[y][x] in 'RG'):
+                        return
+                else:
+                    return
+            graph[y][x] = 'N'
+            for i in range(4):
+                dfs(graph, x + dx[i], y + dy[i], color, colorblind)
 result1 = result2 = 0
 n = int(input())
 graph1 = [list(input()) for _ in range(n)]
