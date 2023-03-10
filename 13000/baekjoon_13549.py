@@ -8,7 +8,7 @@ while queue:
     if now == k:
         print(idx)
         break
-    for i in [now - 1, now + 1, now << 1]:
+    for i in [now << 1, now - 1, now + 1]:
         if 0 <= i <= MAX:
             if not visited[i]:
                 visited[i] = True
