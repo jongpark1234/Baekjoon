@@ -1,9 +1,5 @@
-c = int(input())
-for i in range(c):
-    n = list(map(int, input().split()))
-    avg = (sum(n[1:])) / n[0]
-    upper = 0
-    for i in n[1:]:
-        if (i > avg):
-            upper += 1
-    print("{:.3f}%".format(round((upper/n[0]) * 100, 3)))
+def roundTraditional(val, digits):
+    return round(val + 10 ** (-len(str(val)) - 1), digits)
+for i in range(int(input())):
+    n, *scores = map(int, input().split())
+    print(f'{roundTraditional((sum(map(lambda x: x > sum(scores) / n, scores)) / n) * 100, 3):.3f}%')
