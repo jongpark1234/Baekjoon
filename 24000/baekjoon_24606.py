@@ -1,5 +1,3 @@
-n = int(input())
-s = input()
-for i in range(1, n):
-    if s[i] == 'J':
-        print(s[i - 1])
+s1 = input()
+s2 = input()
+print(1 << sum(s1[i] != s2[i] for i in range(4)))
